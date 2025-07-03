@@ -2,6 +2,7 @@
 /build/
 /target/
 .gradle/
+**/build/
 
 # Keep the Gradle wrapper (needed to build)
 /gradle/wrapper/gradle-wrapper.jar
