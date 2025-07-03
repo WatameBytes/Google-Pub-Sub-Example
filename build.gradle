@@ -1,0 +1,14 @@
+/* Only global knobs live here */
+plugins { id 'java' }      // for source/target 17 below
+
+allprojects {
+    group   = 'com.example'
+    version = '0.1.0-SNAPSHOT'
+    repositories { mavenCentral() }
+    java { sourceCompatibility = JavaVersion.VERSION_17 }
+}
+
+/* subprojects block if you want default test config */
+subprojects {
+    tasks.withType(Test).configureEach { useJUnitPlatform() }
+}

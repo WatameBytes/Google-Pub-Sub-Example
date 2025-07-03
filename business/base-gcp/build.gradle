@@ -1,0 +1,18 @@
+plugins {
+    alias(libs.plugins.dependency.management)
+    id 'java-library'
+}
+
+dependencies {
+    api(libs.spring.context)
+    api(libs.gcp.pubsub)
+    api(libs.jackson.databind)
+
+    compileOnly(libs.lombok)
+    annotationProcessor(libs.lombok)
+
+    testImplementation(libs.junit.jupiter)
+
+    compileOnly(libs.boot.configuration.processor)
+    annotationProcessor(libs.boot.configuration.processor)
+}

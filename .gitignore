@@ -1,0 +1,43 @@
+# === Build directories ===
+/build/
+/target/
+.gradle/
+
+# Keep the Gradle wrapper (needed to build)
+/gradle/wrapper/gradle-wrapper.jar
+
+# === IDE files ===
+# STS/Eclipse
+/.classpath
+/.project
+/.settings/
+/.apt_generated/
+/.springBeans
+/.factorypath
+/sts4-cache/
+
+# IntelliJ IDEA
+/.idea/
+/*.iml
+/*.iws
+/*.ipr
+/out/
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# VS Code
+/.vscode/
+
+# === OS clutter ===
+.DS_Store
+Thumbs.db
+
+# === Secrets & Credentials ===
+# Hide all JSON keys—if you have JSON config you do want committed,
+# move it outside your resources folder or use a more specific pattern.
+/**/*.json

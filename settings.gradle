@@ -1,0 +1,53 @@
+/* ───────── 1. plugins FIRST ───────── */
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+    }
+    plugins {
+        id 'org.springframework.boot'        version '3.2.5'
+        id 'io.spring.dependency-management' version '1.1.4'
+    }
+}
+
+/* ───────── 2. dependency graph (optional but common) ───────── */
+dependencyResolutionManagement {
+    repositories { mavenCentral() }
+
+    versionCatalogs {
+        libs {
+            version('boot',   '3.2.5')
+            version('spring', '6.1.6')
+            version('junit',  '5.10.0')
+            version('lombok', '1.18.32')
+            version('gcp',    '5.0.0')
+            version('jakarta-validation', '3.0.2')
+            version('hibernate-validator', '8.0.1.Final')
+
+            library('boot-starter-web', 'org.springframework.boot', 'spring-boot-starter-web').versionRef('boot')
+            library('spring-context',   'org.springframework',       'spring-context').versionRef('spring')
+            library('junit-jupiter',    'org.junit.jupiter',         'junit-jupiter').versionRef('junit')
+            library('lombok',           'org.projectlombok',         'lombok').versionRef('lombok')
+
+            library('gcp-pubsub', 'com.google.cloud', 'spring-cloud-gcp-starter-pubsub').versionRef('gcp')
+            library('jackson-databind', 'com.fasterxml.jackson.core','jackson-databind').version('2.15.3')
+
+            library('boot-configuration-processor', 'org.springframework.boot', 'spring-boot-configuration-processor').versionRef('boot')
+
+            library('jakarta-validation', 'jakarta.validation', 'jakarta.validation-api').versionRef('jakarta-validation')
+            library('hibernate-validator', 'org.hibernate.validator', 'hibernate-validator').versionRef('hibernate-validator')
+
+            plugin('spring-boot',          'org.springframework.boot').versionRef('boot')
+            plugin('dependency-management','io.spring.dependency-management').version('1.1.4')
+            plugin('lombok',               'io.freefair.lombok').version('8.6')
+        }
+    }
+}
+
+/* ───────── 3. root name ───────── */
+rootProject.name = 'Google-Pub-Sub-Example'
+
+/* ───────── 4. modules to build ───────── */
+include 'app'
+include 'business:calculator'
+include 'business:base-gcp'

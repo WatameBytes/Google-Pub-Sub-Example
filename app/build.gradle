@@ -1,0 +1,26 @@
+plugins {
+    alias(libs.plugins.spring.boot)
+    alias(libs.plugins.dependency.management)
+    alias(libs.plugins.lombok)
+    id 'java'
+}
+
+dependencies {
+    implementation project(':business:calculator')
+    implementation project(':business:base-gcp')
+
+    implementation(libs.boot.starter.web)
+
+    compileOnly(libs.lombok)
+    annotationProcessor(libs.lombok)
+
+    testImplementation(libs.junit.jupiter)
+
+    compileOnly libs.jakarta.validation
+    implementation libs.hibernate.validator // only if you do validation at runtime
+
+}
+
+bootJar {
+    archiveFileName = 'app.jar'
+}
